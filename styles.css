@@ -3,7 +3,7 @@
 }
 
 body {
-    min-height: 98vh;
+    min-height: 100vh;
     background: linear-gradient(#80FFDB, #64DFDF, #48BFE3, #5390D9, #5E60CE);
 }
 
@@ -42,12 +42,14 @@ body {
 }
 
 #display-txt {
+    background-color: #9299a9;
     border: 1px solid white;
     border-radius: 2px;
 
     flex: 1;
     align-self: center;
     text-align: end;
+    padding-right: 4px;
 }
 
 .first-row {
@@ -79,6 +81,7 @@ body {
 
         display: flex;
         flex: 1;
+        cursor: pointer;
     }
 
     #clear-txt,
@@ -140,6 +143,7 @@ body {
         /* the 1px padding here aligns the border line between '0' and ','
         to the border line that we see above, between 2nd & 3rd column */
         padding: 1px;
+        cursor: pointer;
     }
 
     #zero-txt {
