@@ -1,0 +1,165 @@
+* {
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    min-height: 98vh;
+    background: linear-gradient(#80FFDB, #64DFDF, #48BFE3, #5390D9, #5E60CE);
+}
+
+.main-container {
+    /* border: 2px solid white; */
+
+    height: 700px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc-frame {
+    border: 10px solid #2e2e2e;
+    border-radius: 10px;
+
+    width: 370px;
+    height: 550px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#display {
+    padding: 1px;
+    padding-bottom: 10px;
+
+    display: flex;
+    flex: 1;
+
+    background-color: #2e2e2e;
+    color: whitesmoke;
+    font-size: 42px;
+    font-weight: 300;
+}
+
+#display-txt {
+    border: 1px solid white;
+    border-radius: 2px;
+
+    flex: 1;
+    align-self: center;
+    text-align: end;
+}
+
+.first-row {
+    display: flex;
+    flex: 1;
+}
+
+    #clear-btn,
+    #positive-btn,
+    #percent-btn,
+    #divide-btn,
+    #seven-btn,
+    #eight-btn,
+    #nine-btn,
+    #multiply-btn,
+    #four-btn,
+    #five-btn,
+    #six-btn,
+    #minus-btn,
+    #one-btn,
+    #two-btn,
+    #three-btn,
+    #plus-btn,
+    #comma-btn,
+    #equals-btn {
+        /* READY to be applied to all the BTNs 
+        '#zero-btn' is missing because it has 'flex: 2;' */
+        border: 1px solid rgb(253, 253, 253);
+
+        display: flex;
+        flex: 1;
+    }
+
+    #clear-txt,
+    #positive-txt,
+    #percent-txt,
+    #divide-txt,
+    #seven-txt,
+    #eight-txt,
+    #nine-txt,
+    #multiply-txt,
+    #four-txt,
+    #five-txt,
+    #six-txt,
+    #minus-txt,
+    #one-txt,
+    #two-txt,
+    #three-txt,
+    #plus-txt,
+    #comma-txt,
+    #equals-txt {
+        /* READY to be applied to all the TXTs
+        '#zero-btn' is missing because it has 'flex: 2;' */
+        flex: 1;
+
+        text-align: center;
+        align-self: center;
+
+        font-size: 30px;
+        color: white;
+    }
+
+
+.second-row {
+    display: flex;
+    flex: 1;
+}
+
+.third-row {
+    display: flex;
+    flex: 1;
+}
+
+.fourth-row {
+    display: flex;
+    flex: 1;
+}
+
+.fifth-row {
+    display: flex;
+    flex: 1;
+}
+
+    #zero-btn {
+        border: 1px solid white;
+
+        display: flex;
+        flex: 2;
+
+        /* the 1px padding here aligns the border line between '0' and ','
+        to the border line that we see above, between 2nd & 3rd column */
+        padding: 1px;
+    }
+
+    #zero-txt {
+        flex: 1;
+
+        font-size: 30px;
+        color: white;
+
+        text-align: center;
+        align-self: center;
+    }
+
+.right-side-button {
+    background-color: #767ee1;
+}
+
+.top-three-button {
+    background-color: #f75f66;
+}
+
+.number-button {
+    background-color: #9299a9;
+}
