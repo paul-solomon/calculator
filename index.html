@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <title>Badila's Calculator</title>
         <link rel="icon" href="https://fav.farm/🤖" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <script src="js-file.js" defer></script>
     </head>
@@ -11,35 +14,76 @@
     <body>
         <div class="main-container">
             <div class="calc-frame">
-                <div id="display"></div>
+                <div id="display">
+                    <div id="display-txt">0</div>
+                </div>
+
                 <div class="first-row">
-                    <div id="clear-btn"></div>
-                    <div id="positive-btn"></div>
-                    <div id="percent-btn"></div>
-                    <div id="divide-btn"></div>
+                    <div id="clear-btn" class="top-three-button">
+                        <div id="clear-txt">C</div>
+                    </div>
+                    <div id="positive-btn" class="top-three-button">
+                        <div id="positive-txt">+/-</div>
+                    </div>
+                    <div id="percent-btn" class="top-three-button">
+                        <div id="percent-txt">%</div>
+                    </div>
+                    <div id="divide-btn" class="right-side-button">
+                        <div id="divide-txt">÷</div>
+                    </div>
                 </div>
                 <div class="second-row">
-                    <div id="7-btn"></div>
-                    <div id="8-btn"></div>
-                    <div id="9-btn"></div>
-                    <div id="multiply-btn"></div>
+                    <div id="seven-btn" class="number-button">
+                        <div id="seven-txt">7</div>
+                    </div>
+                    <div id="eight-btn" class="number-button">
+                        <div id="eight-txt">8</div>
+                    </div>
+                    <div id="nine-btn" class="number-button">
+                        <div id="nine-txt">9</div>
+                    </div>
+                    <div id="multiply-btn" class="right-side-button">
+                        <div id="multiply-txt">×</div>
+                    </div>
                 </div>
                 <div class="third-row">
-                    <div id="4-btn"></div>
-                    <div id="5-btn"></div>
-                    <div id="6-btn"></div>
-                    <div id="minus-btn"></div>
+                    <div id="four-btn" class="number-button">
+                        <div id="four-txt">4</div>
+                    </div>
+                    <div id="five-btn" class="number-button">
+                        <div id="five-txt">5</div>
+                    </div>
+                    <div id="six-btn" class="number-button">
+                        <div id="six-txt">6</div>
+                    </div>
+                    <div id="minus-btn" class="right-side-button">
+                        <div id="minus-txt">–</div>
+                    </div>
                 </div>
                 <div class="fourth-row">
-                    <div id="1-btn"></div>
-                    <div id="2-btn"></div>
-                    <div id="3-btn"></div>
-                    <div id="plus-btn"></div>
+                    <div id="one-btn" class="number-button">
+                        <div id="one-txt">1</div>
+                    </div>
+                    <div id="two-btn" class="number-button">
+                        <div id="two-txt">2</div>
+                    </div>
+                    <div id="three-btn" class="number-button">
+                        <div id="three-txt">3</div>
+                    </div>
+                    <div id="plus-btn" class="right-side-button">
+                        <div id="plus-txt">+</div>
+                    </div>
                 </div>
                 <div class="fifth-row">
-                    <div id="0-btn"></div>
-                    <div id="comma-btn"></div>
-                    <div id="equals-btn"></div>
+                    <div id="zero-btn" class="number-button">
+                        <div id="zero-txt">0</div>
+                    </div>
+                    <div id="comma-btn" class="number-button">
+                        <div id="comma-txt">,</div>
+                    </div>
+                    <div id="equals-btn" class="right-side-button">
+                        <div id="equals-txt">=</div>
+                    </div>
                 </div>
             </div>
         </div>
