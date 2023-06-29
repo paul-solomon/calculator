@@ -73,6 +73,18 @@ function operate(num1, op, num2) {
     else if (op == '/') {
         result = divide(num1, num2);
     }
+
+    display.textContent = result;
+    resetOp();
+};
+
+// Create a function that sets the correct operands & operators for the next math operation
+function resetOp() {
+    firstNumberArr = [];
+    secondNumberArr = [];
+    secondNumber = 0;
+    firstNumber = result;
+    addsToFirstNumber = false;
 };
 
 // Create a variable for the display
@@ -164,7 +176,6 @@ plusBtn.addEventListener('pointerdown', () => {
 plusBtn.addEventListener('pointerdown', () => {
     addsToFirstNumber = false;
 });
-
 
 let equalsBtn = document.getElementById('equals-btn');
 equalsBtn.addEventListener('pointerdown', () => {
