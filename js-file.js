@@ -16,7 +16,7 @@ let firstNumber;
 let operator;
 let secondNumber;
 
-// Create a variable that stores the result for each opearation
+// Create a variable that stores the result of each opearation
 let result;
 
 // Create a variable that decides when firstNumber stops taking input, so the secondNumber starts doing so
@@ -96,12 +96,10 @@ display.textContent = 0;
 let clearBtn = document.getElementById('clear-btn');
 clearBtn.addEventListener('pointerdown', () => {
     clearBtn.style.backgroundColor = '#a33c41';
+    window.location.reload();
 });
 clearBtn.addEventListener('pointerup', () => {
     clearBtn.style.backgroundColor = '#f75f66';
-});
-clearBtn.addEventListener('pointerdown', () => {
-    window.location.reload();
 });
 
 let positiveBtn = document.getElementById('positive-btn');
@@ -124,68 +122,50 @@ percentBtn.addEventListener('pointerup', () => {
 let divideBtn = document.getElementById('divide-btn');
 divideBtn.addEventListener('pointerdown', () => {
     divideBtn.style.backgroundColor = '#3b3f72';
+    operator = '/';
+    addsToFirstNumber = false;
 });
 divideBtn.addEventListener('pointerup', () => {
     divideBtn.style.backgroundColor = '#767ee1';
-});
-divideBtn.addEventListener('pointerdown', () => {
-    operator = '/';
-});
-divideBtn.addEventListener('pointerdown', () => {
-    addsToFirstNumber = false;
 });
 
 let multiplyBtn = document.getElementById('multiply-btn');
 multiplyBtn.addEventListener('pointerdown', () => {
     multiplyBtn.style.backgroundColor = '#3b3f72';
+    operator = '*';
+    addsToFirstNumber = false;
 });
 multiplyBtn.addEventListener('pointerup', () => {
     multiplyBtn.style.backgroundColor = '#767ee1';
-});
-multiplyBtn.addEventListener('pointerdown', () => {
-    operator = '*';
-});
-multiplyBtn.addEventListener('pointerdown', () => {
-    addsToFirstNumber = false;
 });
 
 let minusBtn = document.getElementById('minus-btn');
 minusBtn.addEventListener('pointerdown', () => {
     minusBtn.style.backgroundColor = '#3b3f72';
+    operator = '-';
+    addsToFirstNumber = false;
 });
 minusBtn.addEventListener('pointerup', () => {
     minusBtn.style.backgroundColor = '#767ee1';
-});
-minusBtn.addEventListener('pointerdown', () => {
-    operator = '-';
-});
-minusBtn.addEventListener('pointerdown', () => {
-    addsToFirstNumber = false;
 });
 
 let plusBtn = document.getElementById('plus-btn');
 plusBtn.addEventListener('pointerdown', () => {
     plusBtn.style.backgroundColor = '#3b3f72';
+    operator = '+';
+    addsToFirstNumber = false;
 });
 plusBtn.addEventListener('pointerup', () => {
     plusBtn.style.backgroundColor = '#767ee1';
-});
-plusBtn.addEventListener('pointerdown', () => {
-    operator = '+';
-});
-plusBtn.addEventListener('pointerdown', () => {
-    addsToFirstNumber = false;
 });
 
 let equalsBtn = document.getElementById('equals-btn');
 equalsBtn.addEventListener('pointerdown', () => {
     equalsBtn.style.backgroundColor = '#3b3f72';
+    operate(firstNumber, operator, secondNumber);
 });
 equalsBtn.addEventListener('pointerup', () => {
     equalsBtn.style.backgroundColor = '#767ee1';
-});
-equalsBtn.addEventListener('pointerdown', () => {
-    operate(firstNumber, operator, secondNumber);
 });
 
 
@@ -193,122 +173,100 @@ equalsBtn.addEventListener('pointerdown', () => {
 let nineBtn = document.getElementById('nine-btn');
 nineBtn.addEventListener('pointerdown', () => {
     nineBtn.style.backgroundColor = '#484b54';
+    sendDigit(9);
 });
 nineBtn.addEventListener('pointerup', () => {
     nineBtn.style.backgroundColor = '#9299a9';
-});
-nineBtn.addEventListener('pointerdown', () => {
-    sendDigit(9);
 });
 
 let eightBtn = document.getElementById('eight-btn');
 eightBtn.addEventListener('pointerdown', () => {
     eightBtn.style.backgroundColor = '#484b54';
+    sendDigit(8);
 });
 eightBtn.addEventListener('pointerup', () => {
     eightBtn.style.backgroundColor = '#9299a9';
-});
-eightBtn.addEventListener('pointerdown', () => {
-    sendDigit(8);
 });
 
 let sevenBtn = document.getElementById('seven-btn');
 sevenBtn.addEventListener('pointerdown', () => {
     sevenBtn.style.backgroundColor = '#484b54';
+    sendDigit(7);
 });
 sevenBtn.addEventListener('pointerup', () => {
     sevenBtn.style.backgroundColor = '#9299a9';
-});
-sevenBtn.addEventListener('pointerdown', () => {
-    sendDigit(7);
 });
 
 let sixBtn = document.getElementById('six-btn');
 sixBtn.addEventListener('pointerdown', () => {
     sixBtn.style.backgroundColor = '#484b54';
+    sendDigit(6);
 });
 sixBtn.addEventListener('pointerup', () => {
     sixBtn.style.backgroundColor = '#9299a9';
-});
-sixBtn.addEventListener('pointerdown', () => {
-    sendDigit(6);
 });
 
 let fiveBtn = document.getElementById('five-btn');
 fiveBtn.addEventListener('pointerdown', () => {
     fiveBtn.style.backgroundColor = '#484b54';
+    sendDigit(5);
 });
 fiveBtn.addEventListener('pointerup', () => {
     fiveBtn.style.backgroundColor = '#9299a9';
-});
-fiveBtn.addEventListener('pointerdown', () => {
-    sendDigit(5);
 });
 
 let fourBtn = document.getElementById('four-btn');
 fourBtn.addEventListener('pointerdown', () => {
     fourBtn.style.backgroundColor = '#484b54';
+    sendDigit(4);
 });
 fourBtn.addEventListener('pointerup', () => {
     fourBtn.style.backgroundColor = '#9299a9';
-});
-fourBtn.addEventListener('pointerdown', () => {
-    sendDigit(4);
 });
 
 let threeBtn = document.getElementById('three-btn');
 threeBtn.addEventListener('pointerdown', () => {
     threeBtn.style.backgroundColor = '#484b54';
+    sendDigit(3);
 });
 threeBtn.addEventListener('pointerup', () => {
     threeBtn.style.backgroundColor = '#9299a9';
-});
-threeBtn.addEventListener('pointerdown', () => {
-    sendDigit(3);
 });
 
 let twoBtn = document.getElementById('two-btn');
 twoBtn.addEventListener('pointerdown', () => {
     twoBtn.style.backgroundColor = '#484b54';
+    sendDigit(2);
 });
 twoBtn.addEventListener('pointerup', () => {
     twoBtn.style.backgroundColor = '#9299a9';
-});
-twoBtn.addEventListener('pointerdown', () => {
-    sendDigit(2);
 });
 
 let oneBtn = document.getElementById('one-btn');
 oneBtn.addEventListener('pointerdown', () => {
     oneBtn.style.backgroundColor = '#484b54';
+    sendDigit(1);
 });
 oneBtn.addEventListener('pointerup', () => {
     oneBtn.style.backgroundColor = '#9299a9';
-});
-oneBtn.addEventListener('pointerdown', () => {
-    sendDigit(1);
 });
 
 let zeroBtn = document.getElementById('zero-btn');
 zeroBtn.addEventListener('pointerdown', () => {
     zeroBtn.style.backgroundColor = '#484b54';
+    sendDigit(0);
 });
 zeroBtn.addEventListener('pointerup', () => {
     zeroBtn.style.backgroundColor = '#9299a9';
-});
-zeroBtn.addEventListener('pointerdown', () => {
-    sendDigit(0);
 });
 
 let commaBtn = document.getElementById('comma-btn');
 commaBtn.addEventListener('pointerdown', () => {
     commaBtn.style.backgroundColor = '#484b54';
+    sendDigit(',');
 });
 commaBtn.addEventListener('pointerup', () => {
     commaBtn.style.backgroundColor = '#9299a9';
-});
-commaBtn.addEventListener('pointerdown', () => {
-    sendDigit(',');
 });
 
 
