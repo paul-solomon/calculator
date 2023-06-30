@@ -1,11 +1,3 @@
-// 1 - the firstNumberArr variable stores an array of numbers (empty at first)
-// 2 - when a NUMBER btn is pressed, that number is pushed to the array, which is converted into a number
-// 3.1 - when an OPERATOR btn is pressed, the operator variable = '+' or '-' or '*' or '/' (depending on the pressed btn)
-// 3.2 - here's also when the value of the addsToFirstNumber becomes false
-// 4 - now the secondNumberArr takes input and is converted into a number, just as firstNumber did
-// 5 - when equalsBtn is pressed, we call the operate() with the three args: firstNumber, operator & secondNumber and see the result
-
-
 // Create two arrays that take input from number btns (next we'll store the input in two variables)
 let firstNumberArr = [];
 let secondNumberArr = [];
@@ -54,6 +46,13 @@ function divide(a = 0, b = 0) {
     }
 };
 
+// PERCENT
+function getPercent(a) {
+    result = a / 100;
+    display.textContent = result;
+    resetOp();
+};
+
 
 // Create 'operate()' - takes two numbers and the operator and then calls one of the above functions
 function operate(num1, op, num2) {
@@ -76,6 +75,24 @@ function operate(num1, op, num2) {
 
     display.textContent = result;
     resetOp();
+};
+
+function handleOperator(newOperator) {
+    // Check if the operator has changed
+    if (operator !== newOperator) {
+        // Perform the calculation if the second number is available
+        if (secondNumberArr.length > 0) {
+            operate(firstNumber, operator, secondNumber);
+            secondNumber = parseInt(secondNumberArr.join(''));
+        }
+
+        // Update the operator
+        operator = newOperator;
+    }
+
+    // Update the display
+    display.textContent = firstNumber;
+    addsToFirstNumber = false;
 };
 
 // Create a function that sets the correct operands & operators for the next math operation
@@ -113,6 +130,7 @@ positiveBtn.addEventListener('pointerup', () => {
 let percentBtn = document.getElementById('percent-btn');
 percentBtn.addEventListener('pointerdown', () => {
     percentBtn.style.backgroundColor = '#a33c41';
+    getPercent(firstNumber);
 });
 percentBtn.addEventListener('pointerup', () => {
     percentBtn.style.backgroundColor = '#f75f66';
@@ -122,8 +140,8 @@ percentBtn.addEventListener('pointerup', () => {
 let divideBtn = document.getElementById('divide-btn');
 divideBtn.addEventListener('pointerdown', () => {
     divideBtn.style.backgroundColor = '#3b3f72';
-    operator = '/';
     addsToFirstNumber = false;
+    handleOperator('/');
 });
 divideBtn.addEventListener('pointerup', () => {
     divideBtn.style.backgroundColor = '#767ee1';
@@ -132,8 +150,8 @@ divideBtn.addEventListener('pointerup', () => {
 let multiplyBtn = document.getElementById('multiply-btn');
 multiplyBtn.addEventListener('pointerdown', () => {
     multiplyBtn.style.backgroundColor = '#3b3f72';
-    operator = '*';
     addsToFirstNumber = false;
+    handleOperator('*');
 });
 multiplyBtn.addEventListener('pointerup', () => {
     multiplyBtn.style.backgroundColor = '#767ee1';
@@ -142,8 +160,8 @@ multiplyBtn.addEventListener('pointerup', () => {
 let minusBtn = document.getElementById('minus-btn');
 minusBtn.addEventListener('pointerdown', () => {
     minusBtn.style.backgroundColor = '#3b3f72';
-    operator = '-';
     addsToFirstNumber = false;
+    handleOperator('-');
 });
 minusBtn.addEventListener('pointerup', () => {
     minusBtn.style.backgroundColor = '#767ee1';
@@ -152,8 +170,8 @@ minusBtn.addEventListener('pointerup', () => {
 let plusBtn = document.getElementById('plus-btn');
 plusBtn.addEventListener('pointerdown', () => {
     plusBtn.style.backgroundColor = '#3b3f72';
-    operator = '+';
     addsToFirstNumber = false;
+    handleOperator('+');
 });
 plusBtn.addEventListener('pointerup', () => {
     plusBtn.style.backgroundColor = '#767ee1';
@@ -263,7 +281,6 @@ zeroBtn.addEventListener('pointerup', () => {
 let commaBtn = document.getElementById('comma-btn');
 commaBtn.addEventListener('pointerdown', () => {
     commaBtn.style.backgroundColor = '#484b54';
-    sendDigit(',');
 });
 commaBtn.addEventListener('pointerup', () => {
     commaBtn.style.backgroundColor = '#9299a9';
@@ -274,7 +291,8 @@ commaBtn.addEventListener('pointerup', () => {
 // This func will be called by each event listener on the number btns
 function sendDigit(d) {
 
-    if (addsToFirstNumber == true) {
+    if (addsToFirstNumber === true) {
+        
         if (d == 9) {
             firstNumberArr.push('9');
         }
@@ -319,7 +337,7 @@ function sendDigit(d) {
         display.textContent = firstNumber;
     }
 
-    else if (addsToFirstNumber == false) {
+    else if (addsToFirstNumber === false) {
         if (d == 9) {
             secondNumberArr.push('9');
         }
