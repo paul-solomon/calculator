@@ -1,43 +1,18 @@
-// 1 - the firstNumberArr variable stores an array of numbers (empty at first)
-// 2 - when a NUMBER btn is pressed, that number is pushed to the array, which is converted into a number
-// 3.1 - when an OPERATOR btn is pressed, the operator variable = '+' or '-' or '*' or '/' (depending on the pressed btn)
-// 3.2 - here's also when the value of the addsToFirstNumber becomes false
-// 4 - now the secondNumberArr takes input and is converted into a number, just as firstNumber did
-// 5 - when equalsBtn is pressed, we call the operate() with the three args: firstNumber, operator & secondNumber and see the result
-
-
 // Create two arrays that take input from number btns (next we'll store the input in two variables)
 let firstNumberArr = [];
 let secondNumberArr = [];
 
 // Create three variables, one for each part of an operation
 // These will be passed as arguments to the operate function
-
-// ####### FIRST STEP TO IMPLEMENTING THE LAST SOLUTION
-
-// Create two variables to store the numbers
-let firstNumber = 0;
-let secondNumber = 0;
-
-// Create a variable to store the operator
-let operator = '';
+let firstNumber;
+let operator;
+let secondNumber;
 
 // Create a variable that stores the result of each opearation
 let result;
 
 // Create a variable that decides when firstNumber stops taking input, so the secondNumber starts doing so
 let addsToFirstNumber = true;
-
-// Create a function to handle digit input
-function sendDigit(d) {
-    if (addsToFirstNumber) {
-      firstNumber = parseFloat(firstNumber.toString() + d.toString());
-      display.textContent = firstNumber;
-    } else {
-      secondNumber = parseFloat(secondNumber.toString() + d.toString());
-      display.textContent = secondNumber;
-    }
-  }
 
 // Create functions for the basic math operations
 // ADD
@@ -71,76 +46,34 @@ function divide(a = 0, b = 0) {
     }
 };
 
-// Create a function to handle operator input
-function handleOperator(newOperator) {
-    if (operator !== '') {
-      operate();
+function getPercent(a) {
+    result = a / 100;
+    display.textContent = result;
+};
+
+
+// Create 'operate()' - takes two numbers and the operator and then calls one of the above functions
+function operate(num1, op, num2) {
+
+    if (op == '+') {
+        result = add(num1, num2);
     }
-  
-    operator = newOperator;
-    addsToFirstNumber = false;
-  }
-  
-  // Create a function to perform the operation
-  function operate() {
-    if (operator === '+') {
-      firstNumber = firstNumber + secondNumber;
-    } else if (operator === '-') {
-      firstNumber = firstNumber - secondNumber;
-    } else if (operator === '*') {
-      firstNumber = firstNumber * secondNumber;
-    } else if (operator === '/') {
-      firstNumber = firstNumber / secondNumber;
+
+    else if (op == '-') {
+        result = subtract(num1, num2);
     }
-  
-    display.textContent = firstNumber;
-    operator = '';
-    secondNumber = 0;
-    addsToFirstNumber = true;
-  }
 
-// // Create 'operate()' - takes two numbers and the operator and then calls one of the above functions
-// function operate(num1, op, num2) {
+    else if (op == '*') {
+        result = multiply(num1, num2);
+    }
 
-//     if (op == '+') {
-//         result = add(num1, num2);
-//     }
+    else if (op == '/') {
+        result = divide(num1, num2);
+    }
 
-//     else if (op == '-') {
-//         result = subtract(num1, num2);
-//     }
-
-//     else if (op == '*') {
-//         result = multiply(num1, num2);
-//     }
-
-//     else if (op == '/') {
-//         result = divide(num1, num2);
-//     }
-
-//     display.textContent = result;
-//     resetOp();
-// };
-
-// function handleOperator(newOperator) {
-//     // Check if the operator has changed
-//   if (operator !== newOperator) {
-//     // Perform the calculation if the second number is available
-//     if (secondNumberArr.length > 0) {
-//       operate(firstNumber, operator, secondNumber);
-//     } else {
-//       // If the second number is not available, set it to the first number
-//       secondNumber = firstNumber;
-//     }
-
-//     // Update the operator
-//     operator = newOperator;
-//   }
-
-//   // Update the display
-//   display.textContent = secondNumber;
-//   addsToFirstNumber = false;
-// };
+    display.textContent = result;
+    resetOp();
+};
 
 // Create a function that sets the correct operands & operators for the next math operation
 function resetOp() {
@@ -154,6 +87,111 @@ function resetOp() {
 // Create a variable for the display
 let display = document.getElementById('display-txt');
 display.textContent = 0;
+
+
+// Create a function that decides where to send each DIGIT (either to firstNumberArr or to secondNumberArr)
+// This func will be called by each event listener on the number btns
+function sendDigit(d) {
+
+    if (addsToFirstNumber == true) {
+        if (d == 9) {
+            firstNumberArr.push('9');
+        }
+    
+        else if (d == 8) {
+            firstNumberArr.push('8');
+        }
+    
+        else if (d == 7) {
+            firstNumberArr.push('7');
+        }
+    
+        else if (d == 6) {
+            firstNumberArr.push('6');
+        }
+    
+        else if (d == 5) {
+            firstNumberArr.push('5');
+        }
+    
+        else if (d == 4) {
+            firstNumberArr.push('4');
+        }
+    
+        else if (d == 3) {
+            firstNumberArr.push('3');
+        }
+    
+        else if (d == 2) {
+            firstNumberArr.push('2');
+        }
+    
+        else if (d == 1) {
+            firstNumberArr.push('1');
+        }
+    
+        else if (d == 0) {
+            firstNumberArr.push('0');
+        }
+
+        else if (d == '.') {
+            firstNumberArr.push('.');
+        }
+    
+        firstNumber = parseFloat(firstNumberArr.join(''));
+        display.textContent = firstNumber;
+    }
+
+    else if (addsToFirstNumber == false) {
+        if (d == 9) {
+            secondNumberArr.push('9');
+        }
+    
+        else if (d == 8) {
+            secondNumberArr.push('8');
+        }
+    
+        else if (d == 7) {
+            secondNumberArr.push('7');
+        }
+    
+        else if (d == 6) {
+            secondNumberArr.push('6');
+        }
+    
+        else if (d == 5) {
+            secondNumberArr.push('5');
+        }
+    
+        else if (d == 4) {
+            secondNumberArr.push('4');
+        }
+    
+        else if (d == 3) {
+            secondNumberArr.push('3');
+        }
+    
+        else if (d == 2) {
+            secondNumberArr.push('2');
+        }
+    
+        else if (d == 1) {
+            secondNumberArr.push('1');
+        }
+    
+        else if (d == 0) {
+            secondNumberArr.push('0');
+        }
+
+        else if (d == '.') {
+            secondNumberArr.push('.');
+        }
+    
+        secondNumber = parseFloat(secondNumberArr.join(''));
+        display.textContent = secondNumber;
+    }
+};
+
 
 // Create variables for each button & add event listeners
 // Top Three Buttons
@@ -177,6 +215,7 @@ positiveBtn.addEventListener('pointerup', () => {
 let percentBtn = document.getElementById('percent-btn');
 percentBtn.addEventListener('pointerdown', () => {
     percentBtn.style.backgroundColor = '#a33c41';
+    getPercent(firstNumber);
 });
 percentBtn.addEventListener('pointerup', () => {
     percentBtn.style.backgroundColor = '#f75f66';
@@ -186,7 +225,8 @@ percentBtn.addEventListener('pointerup', () => {
 let divideBtn = document.getElementById('divide-btn');
 divideBtn.addEventListener('pointerdown', () => {
     divideBtn.style.backgroundColor = '#3b3f72';
-    handleOperator('/');
+    operator = '/';
+    addsToFirstNumber = false;
 });
 divideBtn.addEventListener('pointerup', () => {
     divideBtn.style.backgroundColor = '#767ee1';
@@ -195,7 +235,8 @@ divideBtn.addEventListener('pointerup', () => {
 let multiplyBtn = document.getElementById('multiply-btn');
 multiplyBtn.addEventListener('pointerdown', () => {
     multiplyBtn.style.backgroundColor = '#3b3f72';
-    handleOperator('*');
+    operator = '*';
+    addsToFirstNumber = false;
 });
 multiplyBtn.addEventListener('pointerup', () => {
     multiplyBtn.style.backgroundColor = '#767ee1';
@@ -204,7 +245,8 @@ multiplyBtn.addEventListener('pointerup', () => {
 let minusBtn = document.getElementById('minus-btn');
 minusBtn.addEventListener('pointerdown', () => {
     minusBtn.style.backgroundColor = '#3b3f72';
-    handleOperator('-');
+    operator = '-';
+    addsToFirstNumber = false;
 });
 minusBtn.addEventListener('pointerup', () => {
     minusBtn.style.backgroundColor = '#767ee1';
@@ -213,7 +255,8 @@ minusBtn.addEventListener('pointerup', () => {
 let plusBtn = document.getElementById('plus-btn');
 plusBtn.addEventListener('pointerdown', () => {
     plusBtn.style.backgroundColor = '#3b3f72';
-    handleOperator('+');
+    operator = '+';
+    addsToFirstNumber = false;
 });
 plusBtn.addEventListener('pointerup', () => {
     plusBtn.style.backgroundColor = '#767ee1';
@@ -323,104 +366,8 @@ zeroBtn.addEventListener('pointerup', () => {
 let commaBtn = document.getElementById('comma-btn');
 commaBtn.addEventListener('pointerdown', () => {
     commaBtn.style.backgroundColor = '#484b54';
-    sendDigit(',');
+    sendDigit('.');
 });
 commaBtn.addEventListener('pointerup', () => {
     commaBtn.style.backgroundColor = '#9299a9';
 });
-
-
-// Create a function that decides where to send each DIGIT (either to firstNumberArr or to secondNumberArr)
-// This func will be called by each event listener on the number btns
-// function sendDigit(d) {
-
-//     if (addsToFirstNumber == true) {
-//         if (d == 9) {
-//             firstNumberArr.push('9');
-//         }
-    
-//         else if (d == 8) {
-//             firstNumberArr.push('8');
-//         }
-    
-//         else if (d == 7) {
-//             firstNumberArr.push('7');
-//         }
-    
-//         else if (d == 6) {
-//             firstNumberArr.push('6');
-//         }
-    
-//         else if (d == 5) {
-//             firstNumberArr.push('5');
-//         }
-    
-//         else if (d == 4) {
-//             firstNumberArr.push('4');
-//         }
-    
-//         else if (d == 3) {
-//             firstNumberArr.push('3');
-//         }
-    
-//         else if (d == 2) {
-//             firstNumberArr.push('2');
-//         }
-    
-//         else if (d == 1) {
-//             firstNumberArr.push('1');
-//         }
-    
-//         else if (d == 0) {
-//             firstNumberArr.push('0');
-//         }
-    
-//         firstNumber = parseInt(firstNumberArr.join(''));
-//         display.textContent = firstNumber;
-//     }
-
-//     else if (addsToFirstNumber == false) {
-//         if (d == 9) {
-//             secondNumberArr.push('9');
-//         }
-    
-//         else if (d == 8) {
-//             secondNumberArr.push('8');
-//         }
-    
-//         else if (d == 7) {
-//             secondNumberArr.push('7');
-//         }
-    
-//         else if (d == 6) {
-//             secondNumberArr.push('6');
-//         }
-    
-//         else if (d == 5) {
-//             secondNumberArr.push('5');
-//         }
-    
-//         else if (d == 4) {
-//             secondNumberArr.push('4');
-//         }
-    
-//         else if (d == 3) {
-//             secondNumberArr.push('3');
-//         }
-    
-//         else if (d == 2) {
-//             secondNumberArr.push('2');
-//         }
-    
-//         else if (d == 1) {
-//             secondNumberArr.push('1');
-//         }
-    
-//         else if (d == 0) {
-//             secondNumberArr.push('0');
-//         }
-    
-//         secondNumber = parseInt(secondNumberArr.join(''));
-//         display.textContent = secondNumber;
-//     }
-// };
