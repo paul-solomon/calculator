@@ -48,8 +48,8 @@ function divide(a = 0, b = 0) {
 
 // GET PERCENT
 function getPercent(a) {
-    result = a / 100;
-    display.textContent = result;
+    firstNumber = a / 100;
+    display.textContent = firstNumber;
 };
 
 // POSITIVE/NEGATIVE
