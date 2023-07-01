@@ -103,6 +103,7 @@ let display = document.getElementById('display-txt');
 display.textContent = 0;
 
 
+
 // Create a function that decides where to send each DIGIT (either to firstNumberArr or to secondNumberArr)
 // This func will be called by each event listener on the number btns
 function sendDigit(d) {
