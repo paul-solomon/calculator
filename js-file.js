@@ -46,9 +46,23 @@ function divide(a = 0, b = 0) {
     }
 };
 
+// GET PERCENT
 function getPercent(a) {
     result = a / 100;
     display.textContent = result;
+};
+
+// POSITIVE/NEGATIVE
+function togglePosNeg(a) {
+    if (a > 0) {
+        firstNumber = -a;
+    }
+
+    else if (a < 0) {
+        firstNumber = +a;
+    }
+
+    display.textContent = firstNumber;
 };
 
 
@@ -207,6 +221,7 @@ clearBtn.addEventListener('pointerup', () => {
 let positiveBtn = document.getElementById('positive-btn');
 positiveBtn.addEventListener('pointerdown', () => {
     positiveBtn.style.backgroundColor = '#a33c41';
+    togglePosNeg(firstNumber);
 });
 positiveBtn.addEventListener('pointerup', () => {
     positiveBtn.style.backgroundColor = '#f75f66';
